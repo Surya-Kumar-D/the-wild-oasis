@@ -20,11 +20,15 @@ function CabinTable() {
   if (filterValue === "with-discount")
     filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
   // 2) Sort
-  const sortBy = searchParams.get("sortBy") || "startDate-asc";
+  const sortBy = searchParams.get("sortBy") || "name-asc";
+  console.log(sortBy);
   const [field, direction] = sortBy.split("-");
+  console.log(field, direction);
   const modifier = direction === "asc" ? 1 : -1;
-  const sortedCabins = filteredCabins.sort(
-    (a, b) => (a[field] - b[field]) * modifier
+  const sortedCabins = filteredCabins?.sort((a, b) =>
+    typeof a[field] === "string"
+      ? a[field].localeCompare(b[field]) * modifier
+      : (a[field] - b[field]) * modifier
   );
   return (
     <Menus>
