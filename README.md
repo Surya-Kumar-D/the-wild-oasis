@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 
 #The Wild Oasis
 
-Main project in surya kumar's ultimate react practice
+Main project in surya kumar's ultimate react practice. Built with React Query and Supabase.
