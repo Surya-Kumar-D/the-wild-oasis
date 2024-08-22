@@ -73,12 +73,12 @@ function Modal({ children }) {
 }
 function ModalOpen({ children, opens: opensWindowName }) {
   const { open } = useContext(ModalContext);
-  console.log("Opening modal:", opensWindowName);
+
   return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
 export function useClose(close, listenCapturing = true) {
   const ref = useRef();
-  console.log(ref);
+
   useEffect(
     function () {
       function handleClick(e) {
