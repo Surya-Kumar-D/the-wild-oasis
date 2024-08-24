@@ -21,7 +21,7 @@ export async function getBookings({ filter, sortBy, page }) {
   }
 
   const { data, error, count } = await query;
-  console.log(data, count);
+
   if (error) {
     console.error(error);
     throw new Error("Bookings could not be loaded");
@@ -92,7 +92,6 @@ export async function getStaysTodayActivity() {
   // (stay.status === 'checked-in' && isToday(new Date(stay.endDate)))
 
   if (error) {
-    console.error(error);
     throw new Error("Bookings could not get loaded");
   }
   return data;
@@ -107,7 +106,6 @@ export async function updateBooking(id, obj) {
     .single();
 
   if (error) {
-    console.error(error);
     throw new Error("Booking could not be updated");
   }
   return data;
