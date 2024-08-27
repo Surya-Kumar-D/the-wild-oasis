@@ -21,6 +21,7 @@ import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -35,7 +36,7 @@ function BookingDetail() {
   const navigate = useNavigate();
   const moveBack = useMoveBack();
   if (isLoading || isCheckingOut || isDeleting) return <Spinner />;
-
+  if (!booking) return <Empty resourceName="Booking" />;
   const { status, id: bookingId } = booking;
 
   const statusToTagName = {
